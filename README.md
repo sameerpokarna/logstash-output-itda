@@ -16,13 +16,16 @@ itda {
     port => "4646"
     protocol => "http"
   }
-# This is using ITDA data pattern
+
+This is using ITDA data pattern
   itda {
     host => "localhost"
     port => "4545"
     protocol => "http"
     messageonly => "true"
   }
+
+## Fields
 
 || Property || Value (Default) || Description ||
 | host | | |
