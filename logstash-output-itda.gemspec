@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.description     = "This gem is a Logstash plugin required to be installed on top of the Logstash core pipeline using $LS_HOME/bin/logstash-plugin install gemname. This gem is not a stand-alone program"
   s.authors = ["sameerpokarna"]
   s.email = "sameerpokarna@gmail.com"
-  s.homepage = "http://www.elastic.co/guide/en/logstash/current/index.html"
+  s.homepage = "https://github.com/sameerpokarna/logstash-output-itda"
   s.require_paths = ["lib"]
 
   # Files
