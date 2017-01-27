@@ -3,6 +3,43 @@ A logstash output plugin to send data into ITDA.
 
 ## Documentation
 
+Logstash provides infrastructure to automatically generate documentation for this plugin. We use the asciidoc format to write documentation so any comments in the source code will be first converted into asciidoc and then into html. All plugin documentation are placed under one [central location](http://www.elastic.co/guide/en/logstash/current/).
+
+- For formatting code or config example, you can use the asciidoc `[source,ruby]` directive
+- For more asciidoc formatting tips, see the excellent reference here https://github.com/elastic/docs#asciidoc-guide
+
+## Need Help?
+
+Need help? Try #logstash on freenode IRC or the https://discuss.elastic.co/c/logstash discussion forum.
+
+## Developing
+
+### 1. Plugin Developement and Testing
+
+#### Code
+- To get started, you'll need JRuby with the Bundler gem installed.
+
+- Create a new plugin or clone and existing from the GitHub [logstash-plugins](https://github.com/logstash-plugins) organization. We also provide [example plugins](https://github.com/logstash-plugins?query=example).
+
+- Install dependencies
+```sh
+bundle install
+```
+
+#### Test
+
+- Update your dependencies
+
+```sh
+bundle install
+```
+
+- Run tests
+
+```sh
+bundle exec rspec
+```
+
 ## Pre-requisites
 A To be able to use this plugin, you need the following
 * Installation of BMC TrueSight IT Data Analytics
