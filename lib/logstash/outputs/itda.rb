@@ -3,7 +3,21 @@ require "logstash/outputs/base"
 require "logstash/namespace"
 require "logstash/json"
 
-# An example output that pushes data into ITDA
+# Using hashes:
+# # [source,ruby]
+# # This plugin can be used to send all logstash data into BMC TrueSight IT Data Analytics.
+# # To sue this plugin, an HTTP/HTTPS collector should be created in the ITDA instance, and
+# # this configuration should point to the same.
+# # The various properties supported are -
+# # ----------------------------------
+# # match => {
+# #  "host" => "<hostname>/<ipaddress>"
+# #  "port" => "nnnn"
+# #  "api_key" => "<key>"
+# #  "protocol" => "http/https"
+# #  "messageonly" => "true/false"
+# # }
+# # ----------------------------------
 class LogStash::Outputs::Itda < LogStash::Outputs::Base
   config_name "itda"
 
@@ -21,10 +35,6 @@ class LogStash::Outputs::Itda < LogStash::Outputs::Base
     @uri = URI.parse(@url)
     @client = Net::HTTP.new(@uri.host, @uri.port)
 
-#    @codec.on_event do |event, data|
-#      $stdout.write(data)
-#    end
-
   end # def register
 
   public
@@ -32,16 +42,6 @@ class LogStash::Outputs::Itda < LogStash::Outputs::Base
 
     event.remove('@timestamp')
     event.remove('@version')
-
-#    itda_event = Hash.new
-#    itda_fields = event['@fields']
-#    itda_event = itda_fields.merge itda_event
-#    @logger.debug("ITDA fields", :itda_fields => itda_fields)
-#    @logger.debug("ITDA message", :itda_message => event.message)
-
-#     h.each { |k, v| puts "Key=#{k}, Value=#{v}" }
-#     begin
-#         @logger.debug("Key = 
 
     request = Net::HTTP::Post.new(@uri.path)
     request.basic_auth(@api_key, '')
